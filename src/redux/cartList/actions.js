@@ -13,11 +13,16 @@ export const addBookToCart = book => ({
   payload: book,
 });
 
-export const getBooksRequest = () => ({
-  type: ActionTypes.GET_BOOKS_REQUEST,
+export const purchaseBooksRequest = () => ({
+  type: ActionTypes.PURCHASE_BOOKS_REQUEST,
 });
 
-export const getBooksSuccesss = response => ({
-  type: ActionTypes.GET_BOOKS_SUCCESS,
+export const purchaseBooksSuccesss = response => ({
+  type: ActionTypes.PURCHASE_BOOKS_SUCCESS,
   payload: { response },
+});
+
+export const purchaseBooksError = error => ({
+  type: ActionTypes.PURCHASE_BOOKS_SUCCESS,
+  payload: { error },
 });
