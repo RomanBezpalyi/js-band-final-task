@@ -2,10 +2,8 @@ import * as api from '../../services/session-api';
 import {
   signInRequest,
   signInSuccesss,
-  signInError,
   refreshUserRequest,
   refreshUserSuccess,
-  refreshUserError,
   logOutRequest,
   logOutSuccess,
   logOutError,
@@ -15,10 +13,7 @@ import { getToken } from './selectors';
 export const signin = credentials => dispatch => {
   dispatch(signInRequest());
 
-  api
-    .signin(credentials)
-    .then(response => dispatch(signInSuccesss(response)))
-    .catch(error => dispatch(signInError(error.response)));
+  api.signin(credentials).then(response => dispatch(signInSuccesss(response)));
 };
 
 export const refreshUser = () => (dispatch, getState) => {
@@ -28,8 +23,7 @@ export const refreshUser = () => (dispatch, getState) => {
   dispatch(refreshUserRequest());
   api
     .refreshUser(token)
-    .then(({ data }) => dispatch(refreshUserSuccess(data.books)))
-    .catch(({ data }) => dispatch(refreshUserError(data.message)));
+    .then(response => dispatch(refreshUserSuccess(response)));
 };
 
 export const signout = () => (dispatch, getState) => {

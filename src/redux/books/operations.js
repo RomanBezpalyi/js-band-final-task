@@ -11,5 +11,5 @@ export const getBooks = () => (dispatch, getState) => {
   api
     .getBooks(token)
     .then(response => dispatch(getBooksSuccesss(response)))
-    .catch(({ data }) => dispatch(getBooksError(data.message)));
+    .catch(error => dispatch(getBooksError(error.data.message)));
 };

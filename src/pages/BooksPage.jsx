@@ -1,5 +1,6 @@
 import React from 'react';
+import BookList from '../components/BookList';
 
-const BooksPage = () => <h2>Books</h2>;
+const BooksPage = () => <BookList />;
 
 export default BooksPage;

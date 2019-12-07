@@ -25,13 +25,13 @@ const AuthRedirect = BaseComponent => {
     componentDidUpdate(prevProps) {
       const { authentificated, location, history } = this.props;
       if (!authentificated) return;
-      if (prevProps.authentificated !== authentificated) {
-        if (location.state && location.state.from) {
-          history.replace(location.state.from);
-        }
-
-        history.replace('/books');
+      // if (prevProps.authentificated !== authentificated) {
+      if (location.state && location.state.from) {
+        history.replace(location.state.from);
       }
+
+      history.replace('/books');
+      // }
     }
 
     render() {
