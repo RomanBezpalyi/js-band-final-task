@@ -4,6 +4,7 @@ import ReduxThunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import sessionReducer from './session/reducer';
+import books from './books/reducer';
 
 const persistConfig = {
   key: 'root',
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   session: persistReducer(persistConfig, sessionReducer),
+  books,
 });
 
 const middleware = [ReduxThunk];
