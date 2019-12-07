@@ -4,9 +4,6 @@ import {
   signInSuccesss,
   refreshUserRequest,
   refreshUserSuccess,
-  logOutRequest,
-  logOutSuccess,
-  logOutError,
 } from './actions';
 import { getToken, getUsername } from './selectors';
 
@@ -25,19 +22,4 @@ export const refreshUser = () => (dispatch, getState) => {
   api
     .signin({ username })
     .then(response => dispatch(refreshUserSuccess(response)));
-};
-
-export const signout = () => (dispatch, getState) => {
-  dispatch(logOutRequest());
-
-  const token = getToken(getState());
-  if (!token) return;
-
-  api
-    .signout(token)
-    .then(() => {
-      dispatch(logOutSuccess());
-      api.clearAuthToken();
-    })
-    .catch(error => dispatch(logOutError(error)));
 };

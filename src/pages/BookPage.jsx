@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { connect } from 'react-redux';
+import Header from '../components/Header';
+import BackButton from '../components/BackButton';
 import BookDescription from '../components/BookDescription';
 import CartForm from '../components/CartForm';
 import { getBooks } from '../redux/books/selectors';
@@ -20,17 +22,21 @@ const BookPage = ({ books, match }) => {
     id,
   } = bookData;
   return (
-    <section>
-      <BookDescription
-        cover={cover}
-        title={title}
-        level={level}
-        author={author}
-        tags={tags}
-        description={description}
-      />
-      <CartForm price={price} id={id} count={count} title={title} />
-    </section>
+    <>
+      <Header />
+      <section>
+        <BackButton />
+        <BookDescription
+          cover={cover}
+          title={title}
+          level={level}
+          author={author}
+          tags={tags}
+          description={description}
+        />
+        <CartForm price={price} id={id} count={count} title={title} />
+      </section>
+    </>
   );
 };
 

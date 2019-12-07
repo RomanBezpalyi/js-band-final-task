@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 export default class CartForm extends Component {
   static propTypes = {
@@ -36,6 +37,8 @@ export default class CartForm extends Component {
     const { title, id, addBookToCart } = this.props;
 
     addBookToCart({ count, totalPrice, title, id });
+    toast.success('Books have been successfully added to cart.');
+    this.setState({ count: 0, totalPrice: 0 });
   };
 
   render() {

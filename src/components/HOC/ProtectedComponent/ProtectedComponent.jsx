@@ -25,8 +25,8 @@ ProtectedComponent.propTypes = {
   authentificated: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mSTP = state => ({
   authentificated: isAuthentificated(state),
 });
 
-export default connect(mapStateToProps, null)(ProtectedComponent);
+export default connect(mSTP, null)(ProtectedComponent);
