@@ -1,17 +1,27 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import isModalOpen from './modalController/reducer';
-import todoInEditMode from './todoInEditMode/reducer';
-import todos from './todos/reducer';
-import filters from './filters/reducer';
+import ReduxThunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import sessionReducer from './session/reducer';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['token'],
+};
 
 const rootReducer = combineReducers({
-  todos,
-  isModalOpen,
-  todoInEditMode,
-  filters,
+  session: persistReducer(persistConfig, sessionReducer),
 });
 
-const store = createStore(rootReducer, composeWithDevTools());
+const middleware = [ReduxThunk];
 
-export default store;
+const enhancer =
+  process.env.NODE_ENV === 'development'
+    ? composeWithDevTools(applyMiddleware(...middleware))
+    : applyMiddleware(...middleware);
+
+export const store = createStore(rootReducer, enhancer);
+
+export const persistor = persistStore(store);
