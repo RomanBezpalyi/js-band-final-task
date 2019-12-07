@@ -4,7 +4,6 @@ import { ActionTypes } from './actions';
 const username = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
-    case ActionTypes.REFRESH_USER_SUCCESS:
       return payload.response.data.username;
     case ActionTypes.LOGOUT_SUCCESS:
       return null;
@@ -16,7 +15,6 @@ const username = (state = null, { type, payload }) => {
 const avatar = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
-    case ActionTypes.REFRESH_USER_SUCCESS:
       return payload.response.data.avatar;
     case ActionTypes.LOGOUT_SUCCESS:
       return null;
@@ -54,7 +52,6 @@ const isAuthentificated = (state = false, { type }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
     case ActionTypes.REFRESH_USER_SUCCESS:
-    case ActionTypes.REFRESH_USER:
       return true;
     case ActionTypes.LOGOUT_SUCCESS:
       return false;
