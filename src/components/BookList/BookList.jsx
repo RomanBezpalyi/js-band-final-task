@@ -23,14 +23,14 @@ export default class BookList extends Component {
   };
 
   componentDidMount() {
-    const { getBooks } = this.props;
-    getBooks();
+    const { getBooks, books } = this.props;
+    if (!books.length) getBooks();
   }
 
   render() {
     const { books } = this.props;
     return (
-      <ul>
+      <ul className="list-unstyled container">
         {books.map(book => (
           <li key={book.id}>
             <BookListItem {...book} />

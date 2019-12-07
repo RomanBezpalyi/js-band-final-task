@@ -5,7 +5,7 @@ const username = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
       return payload.response.data.username;
-    case ActionTypes.LOGOUT_SUCCESS:
+    case ActionTypes.HANDLE_LOGOUT:
       return null;
     default:
       return state;
@@ -16,7 +16,7 @@ const avatar = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
       return payload.response.data.avatar;
-    case ActionTypes.LOGOUT_SUCCESS:
+    case ActionTypes.HANDLE_LOGOUT:
       return null;
     default:
       return state;
@@ -28,7 +28,7 @@ const token = (state = null, { type, payload }) => {
     case ActionTypes.SIGN_IN_SUCCESS:
     case ActionTypes.REFRESH_USER_SUCCESS:
       return payload.response.data.token;
-    case ActionTypes.LOGOUT_SUCCESS:
+    case ActionTypes.HANDLE_LOGOUT:
       return null;
     default:
       return state;
@@ -54,7 +54,7 @@ const isAuthentificated = (state = false, { type }) => {
     case ActionTypes.SIGN_IN_SUCCESS:
     case ActionTypes.REFRESH_USER_SUCCESS:
       return true;
-    case ActionTypes.LOGOUT_SUCCESS:
+    case ActionTypes.HANDLE_LOGOUT:
       return false;
     default:
       return state;

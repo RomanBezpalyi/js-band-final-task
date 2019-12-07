@@ -7,9 +7,7 @@ export const ActionTypes = {
   REFRESH_USER_SUCCESS: 'REFRESH_USER_SUCCESS',
   REFRESH_USER_ERROR: 'REFRESH_USER_ERROR',
 
-  LOGOUT_REQUEST: 'LOGOUT_REQUEST',
-  LOGOUT_SUCCESS: 'LOGOUT_SUCCESS',
-  LOGOUT_ERROR: 'LOGOUT_ERROR',
+  HANDLE_LOGOUT: 'HANDLE_LOGOUT',
 
   CLEAR_ERROR_MESSAGE: 'CLEAR_ERROR_MESSAGE',
 };
@@ -32,16 +30,8 @@ export const signInError = error => ({
 
 // Logout
 
-export const logOutRequest = () => ({
-  type: ActionTypes.LOGOUT_REQUEST,
-});
-
-export const logOutSuccess = () => ({
-  type: ActionTypes.LOGOUT_SUCCESS,
-});
-
-export const logOutError = () => ({
-  type: ActionTypes.LOGOUT_ERROR,
+export const handleLogout = () => ({
+  type: ActionTypes.HANDLE_LOGOUT,
 });
 
 // refresh user

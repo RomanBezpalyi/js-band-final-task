@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import sessionReducer from './session/reducer';
 import books from './books/reducer';
 import cartList from './cartList/reducer';
+import isLogOutModalOpen from './controllers/reducer';
 
 const persistConfig = {
   key: 'root',
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   session: persistReducer(persistConfig, sessionReducer),
   books,
   cartList,
+  isLogOutModalOpen,
 });
 
 const middleware = [ReduxThunk];
