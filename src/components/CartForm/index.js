@@ -1,3 +1,3 @@
-import CartForm from './CartForm';
+import CartForm from './CartFormContainer';
 
 export default CartForm;

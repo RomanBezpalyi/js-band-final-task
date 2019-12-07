@@ -7,7 +7,7 @@ export default class CartForm extends Component {
     count: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    // handleAddToCart: PropTypes.func.isRequired,
+    addBookToCart: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -33,9 +33,9 @@ export default class CartForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { count, totalPrice } = this.state;
-    const { title, id } = this.props;
+    const { title, id, addBookToCart } = this.props;
 
-    // handleAddToCart({ count, totalPrice, title, id });
+    addBookToCart({ count, totalPrice, title, id });
   };
 
   render() {
