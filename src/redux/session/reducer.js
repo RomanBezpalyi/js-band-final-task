@@ -26,6 +26,7 @@ const avatar = (state = null, { type, payload }) => {
 const token = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
+    case ActionTypes.REFRESH_USER_SUCCESS:
       return payload.response.data.token;
     case ActionTypes.LOGOUT_SUCCESS:
       return null;

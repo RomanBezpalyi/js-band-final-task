@@ -5,16 +5,18 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import sessionReducer from './session/reducer';
 import books from './books/reducer';
+import cartList from './cartList/reducer';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token', 'username'],
+  whitelist: ['token', 'username', 'avatar'],
 };
 
 const rootReducer = combineReducers({
   session: persistReducer(persistConfig, sessionReducer),
   books,
+  cartList,
 });
 
 const middleware = [ReduxThunk];

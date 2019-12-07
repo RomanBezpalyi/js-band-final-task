@@ -8,7 +8,7 @@ import {
   logOutSuccess,
   logOutError,
 } from './actions';
-import { getToken } from './selectors';
+import { getToken, getUsername } from './selectors';
 
 export const signin = credentials => dispatch => {
   dispatch(signInRequest());
@@ -18,11 +18,12 @@ export const signin = credentials => dispatch => {
 
 export const refreshUser = () => (dispatch, getState) => {
   const token = getToken(getState());
+  const username = getUsername(getState());
 
   if (!token) return;
   dispatch(refreshUserRequest());
   api
-    .refreshUser(token)
+    .signin({ username })
     .then(response => dispatch(refreshUserSuccess(response)));
 };
 

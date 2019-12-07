@@ -12,11 +12,6 @@ export const clearAuthToken = () => {
 
 export const signin = credentials => axios.post('signin', credentials);
 
-export const refreshUser = token => {
-  setAuthToken(token);
-  return axios.get('books');
-};
-
 export const signout = token => {
   setAuthToken(token);
   return axios.get('logout');

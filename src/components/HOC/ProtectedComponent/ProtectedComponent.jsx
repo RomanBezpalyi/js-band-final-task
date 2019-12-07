@@ -20,7 +20,8 @@ const ProtectedComponent = ({
 };
 
 ProtectedComponent.propTypes = {
-  component: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  component: PropTypes.any.isRequired,
   authentificated: PropTypes.bool.isRequired,
 };
 
