@@ -8,3 +8,8 @@ export const getBooks = token => {
   setAuthToken(token);
   return axios.get('books');
 };
+
+export const purchaseBooks = (token, books) => {
+  setAuthToken(token);
+  return axios.post('purchase', books);
+};

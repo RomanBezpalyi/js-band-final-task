@@ -8,6 +8,7 @@ import ProtectedComponent from '../HOC/ProtectedComponent';
 import SigninPage from '../../pages/SigninPage';
 import BooksPage from '../../pages/BooksPage';
 import BookPage from '../../pages/BookPage';
+import CartPage from '../../pages/CartPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
         <Route path="/signin" component={SigninPage} />
         <ProtectedComponent exact path="/books" component={BooksPage} />
         <ProtectedComponent path="/books/:id" component={BookPage} />
+        <ProtectedComponent path="/cart" component={CartPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
     );
