@@ -9,7 +9,7 @@ import books from './books/reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token', 'username'],
+  whitelist: ['token', 'username', 'avatar'],
 };
 
 const rootReducer = combineReducers({

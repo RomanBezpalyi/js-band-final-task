@@ -7,6 +7,7 @@ import { refreshUser } from '../../redux/session/actions';
 import ProtectedComponent from '../HOC/ProtectedComponent';
 import SigninPage from '../../pages/SigninPage';
 import BooksPage from '../../pages/BooksPage';
+import BookPage from '../../pages/BookPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 
 class App extends Component {
@@ -25,7 +26,8 @@ class App extends Component {
       <Switch>
         <Redirect exact from="/" to="/signin" />
         <Route path="/signin" component={SigninPage} />
-        <ProtectedComponent path="/books" component={BooksPage} />
+        <ProtectedComponent exact path="/books" component={BooksPage} />
+        <ProtectedComponent path="/books/:id" component={BookPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
     );
