@@ -3,6 +3,7 @@ export const ActionTypes = {
   SIGN_IN_SUCCESS: 'SIGN_IN_SUCCESS',
   SIGN_IN_ERROR: 'SIGN_IN_ERROR',
 
+  REFRESH_USER: 'REFRESH_USER',
   REFRESH_USER_REQUEST: 'REFRESH_USER_REQUEST',
   REFRESH_USER_SUCCESS: 'REFRESH_USER_SUCCESS',
   REFRESH_USER_ERROR: 'REFRESH_USER_ERROR',
@@ -45,6 +46,10 @@ export const logOutError = () => ({
 });
 
 // refresh user
+
+export const refreshUser = () => ({
+  type: ActionTypes.REFRESH_USER,
+});
 
 export const refreshUserRequest = () => ({
   type: ActionTypes.REFRESH_USER_REQUEST,
