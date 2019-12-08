@@ -30,9 +30,9 @@ export default class BookList extends Component {
   render() {
     const { books } = this.props;
     return (
-      <ul className="list-unstyled container">
+      <ul className="list-unstyled container book-list">
         {books.map(book => (
-          <li key={book.id}>
+          <li key={book.id} className="col-xs-6 col-md-4">
             <BookListItem {...book} />
           </li>
         ))}
