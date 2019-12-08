@@ -21,7 +21,7 @@ const CartPage = ({ books, handlePurchase }) => (
         </div>
       )}
       <CartTable books={books} />
-      {books.length && (
+      {books.length > 0 && (
         <p>
           Total price: {books.reduce((sum, book) => sum + book.totalPrice, 0)}$
         </p>

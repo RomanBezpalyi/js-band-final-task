@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CartTable = ({ books }) =>
-  books.length && (
+  books.length > 0 && (
     <table>
       <thead>
         <tr>
@@ -15,8 +15,8 @@ const CartTable = ({ books }) =>
         {books.map(book => (
           <tr key={book.id}>
             <td>{book.title}</td>
-            <td>{book.count}$</td>
-            <td>{book.totalPrice}</td>
+            <td>{book.count}</td>
+            <td>${book.totalPrice}</td>
           </tr>
         ))}
       </tbody>

@@ -15,19 +15,14 @@ export default class CartForm extends Component {
     super(props);
 
     this.state = {
-      price: 0,
       count: 0,
       totalPrice: 0,
     };
   }
 
-  componentDidMount() {
-    const { price } = this.props;
-    this.setState({ price });
-  }
-
   handleChange = ({ target: { value } }) => {
-    const { price } = this.state;
+    console.log('typeof value', typeof value);
+    const { price } = this.props;
     this.setState({ count: Number(value), totalPrice: price * Number(value) });
   };
 
@@ -42,8 +37,8 @@ export default class CartForm extends Component {
   };
 
   render() {
-    const { count: max } = this.props;
-    const { count, price, totalPrice } = this.state;
+    const { count: max, price } = this.props;
+    const { count, totalPrice } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
