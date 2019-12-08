@@ -6,29 +6,39 @@ import LogOutModal from '../LogOutModal';
 
 const Header = ({ isAuthentificated, avatar, username, openLogOutModal }) => (
   <header className="page-header header">
-    <div className="container">
-      <h1 className="h1 text-left">JS BAND STORE / Roman Bezpalyi</h1>
+    <div className="header-flexcontainer">
+      <h1 className="h2 text-left">JS BAND STORE / Roman Bezpalyi</h1>
       {isAuthentificated && (
         <>
-          <div>
-            <nav>
-              <ul>
+          <div className="header-nav-wrapper">
+            <nav className="header-nav">
+              <ul className="list-unstyled header-nav-list">
                 <li>
                   <Link to="/cart">
-                    <button type="button">
+                    <button type="button" className="cart-btn">
                       <CartIcon />
                     </button>
                   </Link>
                 </li>
                 <li>
-                  <button type="button" onClick={openLogOutModal}>
+                  <button
+                    type="button"
+                    className="btn logout-btn"
+                    onClick={openLogOutModal}
+                  >
                     Sign-Out
                   </button>
                 </li>
               </ul>
             </nav>
-            <img alt="avatar" src={avatar} />
-            <p>{username}</p>
+            <img
+              alt="avatar"
+              src={avatar}
+              width="50"
+              height="50"
+              className="img-circle"
+            />
+            <p className="h4">{username}</p>
           </div>
           <LogOutModal />
         </>
