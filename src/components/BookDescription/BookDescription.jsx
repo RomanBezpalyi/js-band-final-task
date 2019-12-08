@@ -15,10 +15,12 @@ const BookDescription = ({
       <h2>{title}</h2>
       <p>Author: {author}</p>
       <p>Level: {level}</p>
-      <p>Tags:</p>{' '}
-      {tags.map(tag => (
-        <span key={tag}>{tag}</span>
-      ))}
+      <p>
+        Tags:{' '}
+        {tags.map(tag => (
+          <span key={tag}>{tag} </span>
+        ))}
+      </p>
     </div>
     <p>{description}</p>
   </section>
