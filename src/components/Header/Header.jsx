@@ -5,7 +5,7 @@ import { ReactComponent as CartIcon } from '../../assets/icons/shopping-cart.svg
 import LogOutModal from '../LogOutModal';
 
 const Header = ({ isAuthentificated, avatar, username, openLogOutModal }) => (
-  <header className="page-header bg-primary header">
+  <header className="page-header header">
     <div className="container">
       <h1 className="h1 text-left">JS BAND STORE / Roman Bezpalyi</h1>
       {isAuthentificated && (

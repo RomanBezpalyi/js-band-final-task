@@ -6,7 +6,9 @@ import SigninForm from '../components/SigninForm';
 const SigninPage = ({ history, location }) => (
   <>
     <Header />
-    <SigninForm history={history} location={location} />
+    <main className="main-content">
+      <SigninForm history={history} location={location} />
+    </main>
   </>
 );
 

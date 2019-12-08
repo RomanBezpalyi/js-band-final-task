@@ -24,18 +24,20 @@ const BookPage = ({ books, match }) => {
   return (
     <>
       <Header />
-      <section>
-        <BackButton />
-        <BookDescription
-          cover={cover}
-          title={title}
-          level={level}
-          author={author}
-          tags={tags}
-          description={description}
-        />
-        <CartForm price={price} id={id} count={count} title={title} />
-      </section>
+      <main className="main-content">
+        <section>
+          <BackButton />
+          <BookDescription
+            cover={cover}
+            title={title}
+            level={level}
+            author={author}
+            tags={tags}
+            description={description}
+          />
+          <CartForm price={price} id={id} count={count} title={title} />
+        </section>
+      </main>
     </>
   );
 };

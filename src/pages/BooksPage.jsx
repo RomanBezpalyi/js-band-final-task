@@ -5,7 +5,9 @@ import BookList from '../components/BookList';
 const BooksPage = () => (
   <>
     <Header />
-    <BookList />
+    <main className="main-content">
+      <BookList />
+    </main>
   </>
 );
 

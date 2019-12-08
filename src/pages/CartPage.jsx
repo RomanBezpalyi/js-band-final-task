@@ -10,23 +10,26 @@ import { purchaseBooks } from '../redux/cartList/operations';
 const CartPage = ({ books, handlePurchase }) => (
   <>
     <Header />
-    <section>
-      <BackButton />
-      <button type="button" onClick={handlePurchase} disabled={!books.length}>
-        Purchase
-      </button>
-      {!books.length && (
-        <div>
-          <h2>Cart is empty...</h2>
-        </div>
-      )}
-      <CartTable books={books} />
-      {books.length > 0 && (
-        <p>
-          Total price: {books.reduce((sum, book) => sum + book.totalPrice, 0)}$
-        </p>
-      )}
-    </section>
+    <main className="main-content">
+      <section>
+        <BackButton />
+        <button type="button" onClick={handlePurchase} disabled={!books.length}>
+          Purchase
+        </button>
+        {!books.length && (
+          <div>
+            <h2>Cart is empty...</h2>
+          </div>
+        )}
+        <CartTable books={books} />
+        {books.length > 0 && (
+          <p>
+            Total price: {books.reduce((sum, book) => sum + book.totalPrice, 0)}
+            $
+          </p>
+        )}
+      </section>
+    </main>
   </>
 );
 
