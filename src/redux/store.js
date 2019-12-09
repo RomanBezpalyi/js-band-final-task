@@ -11,7 +11,7 @@ import isLogOutModalOpen from './controllers/reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token', 'username', 'avatar'],
+  whitelist: ['token', 'username'],
 };
 
 const rootReducer = combineReducers({

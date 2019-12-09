@@ -15,6 +15,7 @@ const username = (state = null, { type, payload }) => {
 const avatar = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
+    case ActionTypes.REFRESH_USER_SUCCESS:
       return payload.response.data.avatar;
     case ActionTypes.HANDLE_LOGOUT:
       return null;

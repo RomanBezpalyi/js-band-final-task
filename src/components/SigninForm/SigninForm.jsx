@@ -39,15 +39,22 @@ class SigninForm extends Component {
     // const { errorMessage, errors, touched } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={this.handleChange}
-          placeholder="E-mail"
-        />
+      <form onSubmit={this.handleSubmit} className="signin-form">
+        <label htmlFor="username">
+          Username
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={this.handleChange}
+            placeholder="Type username"
+            className="form-control"
+          />
+        </label>
         {/* {errors.email && touched.email && <div>{errors.email}</div>} */}
-        <button type="submit">Sign in</button>
+        <button className="btn base-btn signin-form-btn" type="submit">
+          Sign-In
+        </button>
       </form>
     );
   }
