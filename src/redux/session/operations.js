@@ -4,13 +4,18 @@ import {
   signInSuccesss,
   refreshUserRequest,
   refreshUserSuccess,
+  signInError,
+  refreshUserError,
 } from './actions';
 import { getToken, getUsername } from './selectors';
 
 export const signin = credentials => dispatch => {
   dispatch(signInRequest());
 
-  api.signin(credentials).then(response => dispatch(signInSuccesss(response)));
+  api
+    .signin(credentials)
+    .then(({ data }) => dispatch(signInSuccesss(data)))
+    .catch(({ message }) => dispatch(signInError(message)));
 };
 
 export const refreshUser = () => (dispatch, getState) => {
@@ -21,5 +26,6 @@ export const refreshUser = () => (dispatch, getState) => {
   dispatch(refreshUserRequest());
   api
     .signin({ username })
-    .then(response => dispatch(refreshUserSuccess(response)));
+    .then(({ data }) => dispatch(refreshUserSuccess(data)))
+    .catch(({ message }) => dispatch(refreshUserError(message)));
 };

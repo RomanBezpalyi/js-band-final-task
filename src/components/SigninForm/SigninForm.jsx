@@ -4,6 +4,13 @@ import PropTypes from 'prop-types';
 class SigninForm extends Component {
   static propTypes = {
     onSignin: PropTypes.func.isRequired,
+    error: PropTypes.string,
+    clearErrorMsg: PropTypes.func.isRequired,
+    signInError: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    error: null,
   };
 
   constructor(props) {
@@ -13,22 +20,22 @@ class SigninForm extends Component {
     };
   }
 
-  componentDidMount() {
-    document.body.addEventListener('keydown', this.handleEnterSubmit);
+  componentDidUpdate(prevProps, prevState) {
+    const { error, clearErrorMsg } = this.props;
+    const { username } = this.state;
+    if (error && prevState.username !== username) {
+      clearErrorMsg();
+    }
   }
-
-  componentWillUnmount() {
-    document.body.removeEventListener('keydown', this.handleEnterSubmit);
-  }
-
-  handleEnterSubmit = ({ code }) => {
-    if (code === 'Enter' || code === 'NumpadEnter') this.handleSubmit();
-  };
 
   handleSubmit = e => {
     e.preventDefault();
-    const { onSignin } = this.props;
+    const { onSignin, signInError } = this.props;
     const { username } = this.state;
+    if (username.length < 4 || username.length > 16) {
+      signInError();
+      return;
+    }
     onSignin({ username });
   };
 
@@ -36,7 +43,7 @@ class SigninForm extends Component {
 
   render() {
     const { username } = this.state;
-    // const { errorMessage, errors, touched } = this.props;
+    const { error } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit} className="signin-form">
@@ -51,7 +58,7 @@ class SigninForm extends Component {
             className="form-control"
           />
         </label>
-        {/* {errors.email && touched.email && <div>{errors.email}</div>} */}
+        {error && <div className="error-msg">Field is not valid.</div>}
         <button className="btn base-btn signin-form-btn" type="submit">
           Sign-In
         </button>

@@ -17,12 +17,11 @@ export const purchaseBooksRequest = () => ({
   type: ActionTypes.PURCHASE_BOOKS_REQUEST,
 });
 
-export const purchaseBooksSuccesss = response => ({
+export const purchaseBooksSuccesss = () => ({
   type: ActionTypes.PURCHASE_BOOKS_SUCCESS,
-  payload: { response },
 });
 
 export const purchaseBooksError = error => ({
-  type: ActionTypes.PURCHASE_BOOKS_SUCCESS,
-  payload: { error },
+  type: ActionTypes.PURCHASE_BOOKS_ERROR,
+  payload: error,
 });

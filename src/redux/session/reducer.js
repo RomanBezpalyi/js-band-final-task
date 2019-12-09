@@ -4,7 +4,7 @@ import { ActionTypes } from './actions';
 const username = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
-      return payload.response.data.username;
+      return payload.username;
     case ActionTypes.HANDLE_LOGOUT:
       return null;
     default:
@@ -16,7 +16,7 @@ const avatar = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
     case ActionTypes.REFRESH_USER_SUCCESS:
-      return payload.response.data.avatar;
+      return payload.avatar;
     case ActionTypes.HANDLE_LOGOUT:
       return null;
     default:
@@ -28,22 +28,8 @@ const token = (state = null, { type, payload }) => {
   switch (type) {
     case ActionTypes.SIGN_IN_SUCCESS:
     case ActionTypes.REFRESH_USER_SUCCESS:
-      return payload.response.data.token;
+      return payload.token;
     case ActionTypes.HANDLE_LOGOUT:
-      return null;
-    default:
-      return state;
-  }
-};
-
-const error = (state = null, { type, payload }) => {
-  switch (type) {
-    case ActionTypes.SIGN_IN_ERROR:
-    case ActionTypes.REFRESH_USER_ERROR:
-      return payload.error.message;
-    case ActionTypes.SIGN_IN_SUCCESS:
-    case ActionTypes.REFRESH_USER_SUCCESS:
-    case ActionTypes.CLEAR_ERROR_MESSAGE:
       return null;
     default:
       return state;
@@ -66,6 +52,5 @@ export default combineReducers({
   username,
   avatar,
   token,
-  error,
   isAuthentificated,
 });

@@ -20,12 +20,12 @@ export const signInRequest = () => ({
 
 export const signInSuccesss = response => ({
   type: ActionTypes.SIGN_IN_SUCCESS,
-  payload: { response },
+  payload: response,
 });
 
 export const signInError = error => ({
   type: ActionTypes.SIGN_IN_ERROR,
-  payload: { error },
+  payload: error,
 });
 
 // Logout
@@ -42,12 +42,12 @@ export const refreshUserRequest = () => ({
 
 export const refreshUserSuccess = response => ({
   type: ActionTypes.REFRESH_USER_SUCCESS,
-  payload: { response },
+  payload: response,
 });
 
 export const refreshUserError = error => ({
   type: ActionTypes.REFRESH_USER_ERROR,
-  payload: { error },
+  payload: error,
 });
 
 // clear error message

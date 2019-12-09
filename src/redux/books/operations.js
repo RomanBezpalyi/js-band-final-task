@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import * as api from '../../services/books-api';
 import { getBooksRequest, getBooksSuccesss, getBooksError } from './actions';
 import { getToken } from '../session/selectors';
@@ -10,6 +11,9 @@ export const getBooks = () => (dispatch, getState) => {
   dispatch(getBooksRequest());
   api
     .getBooks(token)
-    .then(response => dispatch(getBooksSuccesss(response)))
-    .catch(error => dispatch(getBooksError(error.data.message)));
+    .then(({ data }) => dispatch(getBooksSuccesss(data)))
+    .catch(({ message }) => {
+      dispatch(getBooksError(message));
+      toast.error(`${message}`);
+    });
 };
