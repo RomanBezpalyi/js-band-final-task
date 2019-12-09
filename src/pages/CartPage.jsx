@@ -11,21 +11,30 @@ const CartPage = ({ books, handlePurchase }) => (
   <>
     <Header />
     <main className="main-content">
-      <section>
-        <BackButton />
-        <button type="button" onClick={handlePurchase} disabled={!books.length}>
-          Purchase
-        </button>
+      <section className="cart-page-section">
+        <div className="cart-page__btn-wrapper">
+          <BackButton />
+          <button
+            type="button"
+            onClick={handlePurchase}
+            disabled={!books.length}
+            className="btn base-btn"
+          >
+            Purchase
+          </button>
+        </div>
         {!books.length && (
-          <div>
-            <h2>Cart is empty...</h2>
+          <div className="cart-page__empty-wrapper">
+            <h2 className="cart-page__empty-wrapper-text">Cart is empty...</h2>
           </div>
         )}
         <CartTable books={books} />
         {books.length > 0 && (
-          <p>
-            Total price: {books.reduce((sum, book) => sum + book.totalPrice, 0)}
-            $
+          <p className="cart-page__total-price">
+            Total price: $
+            {Number(
+              books.reduce((sum, book) => sum + book.totalPrice, 0),
+            ).toFixed(2)}
           </p>
         )}
       </section>

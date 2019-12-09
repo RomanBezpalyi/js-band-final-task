@@ -41,14 +41,23 @@ export default class LogOutModal extends Component {
           role="dialog"
           ref={this.backdropRef}
           onClick={this.handleBackdropClick}
+          className="modal__backdrop"
         >
-          <section>
+          <section className="modal">
             <p>Are you sure you want to logout?</p>
-            <div>
-              <button type="button" onClick={handleLogout}>
+            <div className="modal__wrapper">
+              <button
+                type="button"
+                className="btn base-btn"
+                onClick={handleLogout}
+              >
                 Yes
               </button>
-              <button type="button" onClick={closeLogOutModal}>
+              <button
+                type="button"
+                className="btn base-btn"
+                onClick={closeLogOutModal}
+              >
                 No
               </button>
             </div>
