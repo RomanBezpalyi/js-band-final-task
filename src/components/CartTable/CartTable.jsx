@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CartTable = ({ books }) =>
   books.length > 0 && (
-    <table>
+    <table className="table">
       <thead>
         <tr>
           <th>Title</th>
@@ -16,7 +16,7 @@ const CartTable = ({ books }) =>
           <tr key={book.id}>
             <td>{book.title}</td>
             <td>{book.count}</td>
-            <td>${book.totalPrice}</td>
+            <td>${book.totalPrice.toFixed(2)}</td>
           </tr>
         ))}
       </tbody>
