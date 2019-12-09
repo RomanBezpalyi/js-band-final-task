@@ -1,9 +1,17 @@
 import { connect } from 'react-redux';
 import { signin } from '../../redux/session/operations';
+import { signInError, clearErrorMsg } from '../../redux/session/actions';
+import { getSessionError } from '../../redux/errors/selectors';
 import SigninForm from './SigninForm';
+
+const mSTP = state => ({
+  error: getSessionError(state),
+});
 
 const mDTP = dispatch => ({
   onSignin: username => dispatch(signin(username)),
+  signInError: () => dispatch(signInError('Invalid field.')),
+  clearErrorMsg: () => dispatch(clearErrorMsg()),
 });
 
-export default connect(null, mDTP)(SigninForm);
+export default connect(mSTP, mDTP)(SigninForm);

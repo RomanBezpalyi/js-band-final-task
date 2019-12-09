@@ -18,9 +18,12 @@ export const purchaseBooks = () => (dispatch, getState) => {
   dispatch(purchaseBooksRequest());
   api
     .purchaseBooks(token, { books })
-    .then(response => {
-      dispatch(purchaseBooksSuccesss(response));
-      toast.success(`${response.data.message}`);
+    .then(({ data }) => {
+      dispatch(purchaseBooksSuccesss());
+      toast.success(`${data.message}`);
     })
-    .catch(error => dispatch(purchaseBooksError(error.message)));
+    .catch(({ message }) => {
+      dispatch(purchaseBooksError(message));
+      toast.error('Oops... Something went wrong. Try again.');
+    });
 };

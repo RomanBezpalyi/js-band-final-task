@@ -12,10 +12,10 @@ export const getBooksRequest = () => ({
 
 export const getBooksSuccesss = response => ({
   type: ActionTypes.GET_BOOKS_SUCCESS,
-  payload: { response },
+  payload: response,
 });
 
 export const getBooksError = error => ({
   type: ActionTypes.GET_BOOKS_ERROR,
-  payload: { error },
+  payload: error,
 });
