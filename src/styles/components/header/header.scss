@@ -18,7 +18,7 @@
 }
 
 .header-nav {
-  width: 50%;
+  width: 46%;
 }
 
 .header-nav-list {
@@ -26,6 +26,7 @@
   margin: 0;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
 }
 
 .header-nav-list>li {
@@ -69,6 +70,10 @@
 
   .header-nav-wrapper {
     width: 60%;
+  }
+
+  .header-nav-list {
+    flex-direction: row;
   }
 }
 
