@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import BackButton from '../BackButton';
 
 const BookDescription = ({
   cover,
@@ -9,20 +10,29 @@ const BookDescription = ({
   tags,
   description,
 }) => (
-  <section>
-    <div>
-      <img alt="book cover" src={cover} />
-      <h2>{title}</h2>
-      <p>Author: {author}</p>
-      <p>Level: {level}</p>
-      <p>
-        Tags:{' '}
-        {tags.map(tag => (
-          <span key={tag}>{tag} </span>
-        ))}
-      </p>
+  <section className="thumbnail book-description-section">
+    <div className="book-description-wrapper">
+      <img alt="book cover" src={cover} className="img-thumbnail book-cover" />
+      <div className="description-text-wrapper">
+        <h2 className="book-title">{title}</h2>
+        <p>
+          <strong>Author:</strong> {author}
+        </p>
+        <p>
+          <strong>Level:</strong> {level}
+        </p>
+        <p>
+          <strong>Tags: </strong>
+          {tags.map(tag => (
+            <span className="label label-default tag" key={tag}>
+              {tag}
+            </span>
+          ))}
+        </p>
+      </div>
     </div>
-    <p>{description}</p>
+    <p className="description">{description}</p>
+    <BackButton />
   </section>
 );
 

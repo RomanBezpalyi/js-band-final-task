@@ -23,7 +23,9 @@ class App extends Component {
 
   componentDidMount() {
     const { token, handleRefreshUser } = this.props;
-    if (token) handleRefreshUser();
+    if (token) {
+      handleRefreshUser();
+    }
   }
 
   render() {
