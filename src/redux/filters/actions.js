@@ -1,7 +1,6 @@
 export const ActionTypes = {
   SET_SEARCH_QUERY: 'SET_SEARCH_QUERY',
-  SET_PRIORITY: 'SET_PRIORITY',
-  SET_PROGRESS: 'SET_PROGRESS',
+  SET_PRICE: 'SET_PRICE',
 };
 
 export const setFilter = (type, value) => ({
