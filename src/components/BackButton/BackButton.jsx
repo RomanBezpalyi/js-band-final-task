@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 const BackButton = () => (
   <Link to="/books">
-    <button type="button">Back to Booklist</button>
+    <button className="btn base-btn" type="button">
+      Back to Booklist
+    </button>
   </Link>
 );
 

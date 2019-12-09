@@ -32,7 +32,7 @@ export default class BookList extends Component {
     return (
       <ul className="list-unstyled container book-list">
         {books.map(book => (
-          <li key={book.id} className="col-xs-6 col-md-4">
+          <li key={book.id} className="col-xs-12 col-sm-6 col-md-4">
             <BookListItem {...book} />
           </li>
         ))}

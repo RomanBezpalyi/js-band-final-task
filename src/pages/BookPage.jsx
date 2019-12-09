@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import BackButton from '../components/BackButton';
 import BookDescription from '../components/BookDescription';
 import CartForm from '../components/CartForm';
 import { getBooks } from '../redux/books/selectors';
@@ -25,8 +24,7 @@ const BookPage = ({ books, match }) => {
     <>
       <Header />
       <main className="main-content">
-        <section>
-          <BackButton />
+        <section className="book-page-section">
           <BookDescription
             cover={cover}
             title={title}

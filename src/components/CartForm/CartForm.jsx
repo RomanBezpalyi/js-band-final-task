@@ -21,7 +21,6 @@ export default class CartForm extends Component {
   }
 
   handleChange = ({ target: { value } }) => {
-    console.log('typeof value', typeof value);
     const { price } = this.props;
     this.setState({ count: Number(value), totalPrice: price * Number(value) });
   };
@@ -40,32 +39,37 @@ export default class CartForm extends Component {
     const { count: max, price } = this.props;
     const { count, totalPrice } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <p>Price, $</p>
-          <span>{price}</span>
-        </div>
-        <div>
-          <label htmlFor="count">
+      <aside className="cart-aside">
+        <form onSubmit={this.handleSubmit} className="cart-form">
+          <div className="cart-form__wrapper">
+            <p className="cart-form__subtitle">Price, $</p>
+            <span>{price}</span>
+          </div>
+          <label htmlFor="count" className="cart-form__wrapper">
             Count
             <input
               id="count"
               type="number"
+              className="form-control cart-form__input"
               value={count}
               min={0}
               max={max}
               onChange={this.handleChange}
             />
           </label>
-        </div>
-        <div>
-          <p>Total price</p>
-          <span>${totalPrice}</span>
-        </div>
-        <button type="submit" disabled={!count || count > max}>
-          Add to cart
-        </button>
-      </form>
+          <div className="cart-form__wrapper">
+            <p className="cart-form__subtitle">Total price</p>
+            <span>${totalPrice.toFixed(2)}</span>
+          </div>
+          <button
+            type="submit"
+            className="btn base-btn cart-form-btn"
+            disabled={!count || count > max}
+          >
+            Add to cart
+          </button>
+        </form>
+      </aside>
     );
   }
 }
