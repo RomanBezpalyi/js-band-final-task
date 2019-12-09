@@ -9,6 +9,7 @@ import cartList from './cartList/reducer';
 import isLogOutModalOpen from './controllers/reducer';
 import filters from './filters/reducer';
 import errors from './errors/reducer';
+import loadings from './loadings/reducer';
 
 const persistConfig = {
   key: 'root',
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   isLogOutModalOpen,
   filters,
   errors,
+  loadings,
 });
 
 const middleware = [ReduxThunk];
