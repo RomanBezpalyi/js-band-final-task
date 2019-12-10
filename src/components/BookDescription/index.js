@@ -1,3 +1,3 @@
-import BookDescription from './BookDescription';
+import BookDescription from './BookDescriptionContainer';
 
 export default BookDescription;
