@@ -5,6 +5,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import sessionReducer from './session/reducer';
 import books from './books/reducer';
+import selectedBook from './selectedBook/reducer';
 import cartList from './cartList/reducer';
 import isLogOutModalOpen from './controllers/reducer';
 import filters from './filters/reducer';
@@ -20,6 +21,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   session: persistReducer(persistConfig, sessionReducer),
   books,
+  selectedBook,
   cartList,
   isLogOutModalOpen,
   filters,

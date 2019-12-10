@@ -1,6 +1,7 @@
 .book-page-section {
   width: 80%;
   margin: 0 auto;
+
 }
 
 .book-description-section {
@@ -36,6 +37,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .book-page-section {
+    padding-bottom: 20px;
+  }
+
   .book-description-section {
     text-align: center;
   }

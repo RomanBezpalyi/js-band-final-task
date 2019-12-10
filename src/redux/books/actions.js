@@ -2,8 +2,6 @@ export const ActionTypes = {
   GET_BOOKS_REQUEST: 'GET_BOOKS_REQUEST',
   GET_BOOKS_SUCCESS: 'GET_BOOKS_SUCCESS',
   GET_BOOKS_ERROR: 'GET_BOOKS_ERROR',
-
-  CLEAR_BOOK_ERROR: 'CLEAR_BOOK_ERROR',
 };
 
 export const getBooksRequest = () => ({

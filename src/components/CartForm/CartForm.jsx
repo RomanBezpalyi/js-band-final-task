@@ -4,11 +4,17 @@ import { toast } from 'react-toastify';
 
 export default class CartForm extends Component {
   static propTypes = {
-    price: PropTypes.number.isRequired,
-    count: PropTypes.number.isRequired,
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    book: PropTypes.shape({
+      price: PropTypes.number.isRequired,
+      count: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
     addBookToCart: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    book: null,
   };
 
   constructor(props) {
@@ -21,14 +27,15 @@ export default class CartForm extends Component {
   }
 
   handleChange = ({ target: { value } }) => {
-    const { price } = this.props;
+    const { price } = this.props.book;
     this.setState({ count: Number(value), totalPrice: price * Number(value) });
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const { count, totalPrice } = this.state;
-    const { title, id, addBookToCart } = this.props;
+    const { book, addBookToCart } = this.props;
+    const { title, id } = book;
 
     addBookToCart({ count, totalPrice, title, id });
     toast.success('Books have been successfully added to cart.');
@@ -36,40 +43,42 @@ export default class CartForm extends Component {
   };
 
   render() {
-    const { count: max, price } = this.props;
     const { count, totalPrice } = this.state;
+    const { book } = this.props;
     return (
-      <aside className="cart-aside">
-        <form onSubmit={this.handleSubmit} className="cart-form">
-          <div className="cart-form__wrapper">
-            <p className="cart-form__subtitle">Price, $</p>
-            <span>{price}</span>
-          </div>
-          <label htmlFor="count" className="cart-form__wrapper">
-            Count
-            <input
-              id="count"
-              type="number"
-              className="form-control cart-form__input"
-              value={count}
-              min={0}
-              max={max}
-              onChange={this.handleChange}
-            />
-          </label>
-          <div className="cart-form__wrapper">
-            <p className="cart-form__subtitle">Total price</p>
-            <span>${totalPrice.toFixed(2)}</span>
-          </div>
-          <button
-            type="submit"
-            className="btn base-btn cart-form-btn"
-            disabled={!count || count > max}
-          >
-            Add to cart
-          </button>
-        </form>
-      </aside>
+      book && (
+        <aside className="cart-aside">
+          <form onSubmit={this.handleSubmit} className="cart-form">
+            <div className="cart-form__wrapper">
+              <p className="cart-form__subtitle">Price, $</p>
+              <span>{book.price.toFixed(2)}</span>
+            </div>
+            <label htmlFor="count" className="cart-form__wrapper">
+              Count
+              <input
+                id="count"
+                type="number"
+                className="form-control cart-form__input"
+                value={count}
+                min={0}
+                max={book.count}
+                onChange={this.handleChange}
+              />
+            </label>
+            <div className="cart-form__wrapper">
+              <p className="cart-form__subtitle">Total price</p>
+              <span>${totalPrice.toFixed(2)}</span>
+            </div>
+            <button
+              type="submit"
+              className="btn base-btn cart-form-btn"
+              disabled={!count || count > book.count}
+            >
+              Add to cart
+            </button>
+          </form>
+        </aside>
+      )
     );
   }
 }

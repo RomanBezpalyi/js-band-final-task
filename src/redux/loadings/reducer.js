@@ -1,10 +1,12 @@
 import { ActionTypes as SessionTypes } from '../session/actions';
 import { ActionTypes as BookTypes } from '../books/actions';
+import { ActionTypes as SelectedBookTypes } from '../selectedBook/actions';
 import { ActionTypes as CartTypes } from '../cartList/actions';
 
 const initialState = {
   sessionLoading: false,
   getBooksLoading: false,
+  getSelectedBookLoading: false,
   purchaseBooksLoading: false,
 };
 
@@ -15,6 +17,8 @@ const loadings = (state = initialState, { type }) => {
       return { ...state, sessionLoading: true };
     case BookTypes.GET_BOOKS_REQUEST:
       return { ...state, getBooksLoading: true };
+    case SelectedBookTypes.GET_SELECTED_BOOK_REQUEST:
+      return { ...state, getSelectedBookLoading: true };
     case CartTypes.PURCHASE_BOOKS_REQUEST:
       return { ...state, purchaseBooksLoading: true };
 
@@ -26,6 +30,9 @@ const loadings = (state = initialState, { type }) => {
     case BookTypes.GET_BOOKS_SUCCESS:
     case BookTypes.GET_BOOKS_ERROR:
       return { ...state, getBooksLoading: false };
+    case SelectedBookTypes.GET_SELECTED_BOOK_SUCCESS:
+    case SelectedBookTypes.GET_SELECTED_BOOK_ERROR:
+      return { ...state, getSelectedBookLoading: false };
     case CartTypes.PURCHASE_BOOKS_SUCCESS:
     case CartTypes.PURCHASE_BOOKS_ERROR:
       return { ...state, purchaseBooksLoading: false };

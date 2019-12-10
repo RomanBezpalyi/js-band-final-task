@@ -3,10 +3,14 @@ import { setAuthToken } from './session-api';
 
 axios.defaults.baseURL = 'https://js-band-api.glitch.me/';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getBooks = token => {
   setAuthToken(token);
   return axios.get('books');
+};
+
+export const getBook = (token, id) => {
+  setAuthToken(token);
+  return axios.get(`books/${id}`);
 };
 
 export const purchaseBooks = (token, books) => {

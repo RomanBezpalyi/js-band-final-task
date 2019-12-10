@@ -9,7 +9,7 @@ const BookListItem = ({ cover, title, author, price, id }) => (
     <p>{author}</p>
     <div className="item-wrapper">
       <p>
-        <strong>Price: {price}$</strong>
+        <strong>Price: {price.toFixed(2)}$</strong>
       </p>
       <Link to={`/books/${id}`}>
         <button type="button" className="btn list-item-btn">
