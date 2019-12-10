@@ -24,9 +24,9 @@ const AuthRedirect = BaseComponent => {
       if (!authentificated) return;
       if (location.state && location.state.from) {
         history.replace(location.state.from);
+      } else {
+        history.replace('/books');
       }
-
-      history.replace('/books');
     }
 
     render() {
