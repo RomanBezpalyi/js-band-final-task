@@ -11,10 +11,15 @@ import { getCartList } from './selectors';
 // eslint-disable-next-line import/prefer-default-export
 export const purchaseBooks = () => (dispatch, getState) => {
   const token = getToken(getState());
-  const cartList = getCartList(getState());
-  const books = cartList.map(book => book.id);
-
   if (!token) return;
+  const cartList = getCartList(getState());
+  const books = [];
+  cartList.forEach(book => {
+    for (let i = 0; i < book.count; i += 1) {
+      books.push(book.id);
+    }
+  });
+
   dispatch(purchaseBooksRequest());
   api
     .purchaseBooks(token, { books })
