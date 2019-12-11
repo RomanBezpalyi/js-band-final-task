@@ -3,6 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+
+// Reducers
 import sessionReducer from './session/reducer';
 import books from './books/reducer';
 import selectedBook from './selectedBook/reducer';
