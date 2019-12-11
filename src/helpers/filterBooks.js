@@ -1,3 +1,5 @@
+import priceSelectorOptions from '../constants/priceSelectorOptions';
+
 const filterBooks = (books, title, price) => {
   let filteredBooks = [...books];
   if (title) {
@@ -5,9 +7,9 @@ const filterBooks = (books, title, price) => {
       book.title.toLowerCase().includes(title.toLowerCase()),
     );
   }
-  if (price !== 'Price') {
+  if (price !== priceSelectorOptions.DEFAULT) {
     filteredBooks =
-      price === '30'
+      price === priceSelectorOptions.MAX
         ? filteredBooks.filter(book => book.price >= Number(price))
         : filteredBooks.filter(
             book =>

@@ -26,16 +26,9 @@ export default class BookDashboard extends Component {
 
   render() {
     const { isLoading } = this.props;
-    const screenWidth = document.documentElement.clientWidth;
-    const width = screenWidth > 767 ? 300 : 80;
-    const height = screenWidth > 767 ? 200 : 80;
     return (
       <section className="book-page-section">
-        {isLoading && (
-          <div className="loader-books">
-            <LoaderSpinner width={width} height={height} />
-          </div>
-        )}
+        {isLoading && <LoaderSpinner />}
         <BookDescription />
         <CartForm />
       </section>

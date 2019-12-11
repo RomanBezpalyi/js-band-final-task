@@ -30,17 +30,10 @@ export default class BookList extends Component {
   }
 
   render() {
-    const screenWidth = document.documentElement.clientWidth;
-    const width = screenWidth > 767 ? 300 : 80;
-    const height = screenWidth > 767 ? 200 : 80;
     const { books, isLoading } = this.props;
     return (
       <>
-        {isLoading && (
-          <div className="loader-books">
-            <LoaderSpinner width={width} height={height} />
-          </div>
-        )}
+        {isLoading && <LoaderSpinner />}
         <ul className="list-unstyled container book-list">
           {books.map(book => (
             <li key={book.id} className="col-xs-12 col-sm-6 col-md-4">
