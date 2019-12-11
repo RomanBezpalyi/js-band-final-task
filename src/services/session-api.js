@@ -6,10 +6,6 @@ export const setAuthToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const clearAuthToken = () => {
-  axios.defaults.headers.common.Authorization = null;
-};
-
 export const signin = credentials => axios.post('signin', credentials);
 
 export const signout = token => {
