@@ -48,6 +48,7 @@ export default class CartForm extends Component {
     return (
       book && (
         <aside className="cart-aside">
+          <h3 className="cart-aside__title">Order the book</h3>
           <form onSubmit={this.handleSubmit} className="cart-form">
             <div className="cart-form__wrapper">
               <p className="cart-form__subtitle">Price, $</p>
