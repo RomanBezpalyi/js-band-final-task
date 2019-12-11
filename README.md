@@ -1,17 +1,42 @@
-# js-band-hw-task-7
+# js-band-final-task
 
-**Ciklum University: JS Band Internship. Homework task 7**
+**Ciklum University: JS Band Internship. Final task**
 
-The application allows user to note his tasks to do, tracking their progress. To
-add your task, push 'Create' button and fill the title, description, and
-priority fields. You can update your task's progress status, its title or
-description, or delete it via '...' button. All tasks can be filtered using
-selects in the content's top part. Also, there is an ability to search a task by
-its title using 'Search by title' input.
+The application allows user to purchase books in the online book store. To make
+transaction, a user has to sign in the store. There is an ability to look
+through the books available and to check details about them. A user can add
+books into his cart, to see his order list via 'Cart' button and make a purchase
+of chosen books via 'Purchase' button.
 
-**Improvements**
+Check the demo via link: https://romanbezpalyi.github.io/js-band-final-task/
 
-- State management is implemented using `redux`.
+## Launching
+
+To launch project, follow next steps:
+
+1. Clone the repository into chosen directory:
+
+```bash
+git clone https://github.com/RomanBezpalyi/js-band-final-task.git
+```
+
+2. Change directory to project's directory:
+
+```bash
+cd js-band-final-task
+```
+
+3. Install all the dependencies required:
+
+```bash
+npm i
+```
+
+4. Run project:
+
+```bash
+npm start
+```
 
 ## Available Scripts
 
@@ -60,92 +85,149 @@ customize it when you are ready for it.
 
 ```bash
 ├── assets
-│   └── icons
-│      └── check-mark.svg
+│   ├── icons
+│   │   └── shopping-cart.svg
+│   └── images
+│       └── JS_BAND_STORE.png
 ├── components
 │   ├── App
 │   │   │── App.jsx
 │   │   └── index.js
-│   ├── ButtonDropdown
-│   │   │── ButtonDropdown.jsx
-│   │   │── ButtonDropdownContainer.js
+│   ├── BackButton
+│   │   │── BackButton.jsx
 │   │   └── index.js
-│   ├── Dashboard
-│   │   │── Dashboard.jsx
-│   │   │── DashboardContainer.js
+│   ├── BookDashboard
+│   │   │── BookDashboard.jsx
+│   │   │── BookDashboardContainer.js
 │   │   └── index.js
-│   ├── Footer
-│   │   │── Footer.jsx
+│   ├── BookDescription
+│   │   │── BookDescription.jsx
+│   │   │── BookDescriptionContainer.js
 │   │   └── index.js
-│   ├── Form
-│   │   ├── PrioritySelect
-│   │   │   │── index.js
-│   │   │   └── PrioritySelect.jsx
-│   │   ├── ProgressSelect
-│   │   │   │── index.js
-│   │   │   └── ProgressSelect.jsx
-│   │   │── Form.jsx
-│   │   │── FormContainer.jsx
+│   ├── BookList
+│   │   │── BookList.jsx
+│   │   │── BookListContainer.js
+│   │   └── index.js
+│   ├── BookListItem
+│   │   │── BookListItem.jsx
+│   │   └── index.js
+│   ├── CartDashboard
+│   │   │── CartDashboard.jsx
+│   │   │── CartDashboardContainer.js
+│   │   └── index.js
+│   ├── CartForm
+│   │   │── CartForm.jsx
+│   │   │── CartFormContainer.js
+│   │   └── index.js
+│   ├── CartTable
+│   │   │── CartTable.jsx
+│   │   └── index.js
+│   ├── FilterForm
+│   │   │── FilterForm.jsx
+│   │   │── FilterFormContainer.jsx
 │   │   └── index.js
 │   ├── Header
 │   │   │── Header.jsx
+│   │   │── HeaderContainer.jsx
 │   │   └── index.js
-│   ├── ItemButton
+│   ├── HOC
+│   │   ├── AuthRedirect
+│   │   │   │── AuthRedirect.jsx
+│   │   │   └── index.jsx
+│   │   └── ProtectedComponent
+│   │       │── index.js
+│   │       └── ProtectedComponent.jsx
+│   ├── LoaderSpinner
 │   │   │── index.js
-│   │   └── ItemButton.jsx
-│   ├── Modal
+│   │   └── LoaderSpinner.jsx
+│   ├── LogOutModal
 │   │   │── index.js
-│   │   │── Modal.jsx
-│   │   └── ModalContainer.js
-│   ├── pages
-│   │   ├── NotFoundPage.jsx
-│   │   └── TodosPage.jsx
-│   ├── TodoItem
-│   │   │── index.js
-│   │   └── TodoItem.jsx
-│   └── TodoList
+│   │   │── LogOutModal.jsx
+│   │   └── LogOutModalContainer.js
+│   ├── Root
+│   │   ├── index.js
+│   │   └── Root.jsx
+│   └── SigninForm
 │       │── index.js
-│       │── TodoList.jsx
-│       └── TodoListContainer.js
+│       │── SigninForm.jsx
+│       └── SigninFormContainer.js
 ├── configs
 │   └── index.js
+├── constants
+│   └── priceSelectorOptions.js
 ├── helpers
-│   └── filterTodos.js
+│   └── filterBooks.js
+├── pages
+│   ├── BookPage.jsx
+│   ├── BooksPage.jsx
+│   ├── CartPage.jsx
+│   ├── NotFoundPage.jsx
+│   └── SigninPage.jsx
 ├── redux
+│   ├── books
+│   │   │── actions.js
+│   │   │── operations.js
+│   │   │── reducer.js
+│   │   └── selectors.js
+│   ├── cartList
+│   │   │── actions.js
+│   │   │── operations.js
+│   │   │── reducer.js
+│   │   └── selectors.js
+│   ├── controllers
+│   │   │── actions.js
+│   │   │── reducer.js
+│   │   └── selectors.js
+│   ├── errors
+│   │   │── reducer.js
+│   │   └── selectors.js
 │   ├── filters
 │   │   │── actions.js
 │   │   │── reducer.js
 │   │   └── selectors.js
-│   ├── modalController
-│   │   │── actions.js
+│   ├── loadings
 │   │   │── reducer.js
 │   │   └── selectors.js
-│   ├── todoInEditMode
+│   ├── selectedBook
 │   │   │── actions.js
+│   │   │── operations.js
 │   │   │── reducer.js
 │   │   └── selectors.js
-│   ├── todos
+│   ├── session
 │   │   │── actions.js
+│   │   │── operations.js
 │   │   │── reducer.js
 │   │   └── selectors.js
-│   ├── index.js
 │   └── store.js
+├── services
+│   ├── books-api.js
+│   └── session-api.js
 ├── styles
 │   ├── base
 │   │   └── normalize.scss
 │   ├── components
-│   │   ├── dashboard
-│   │   │   └── dashboard.scss
-│   │   ├── form
-│   │   │   └── form.scss
+│   │   ├── base-btn
+│   │   │   └── base-btn.scss
+│   │   ├── book-list
+│   │   │   └── book-list.scss
+│   │   ├── book-page
+│   │   │   └── book-page.scss
+│   │   ├── cart-form
+│   │   │   └── cart-form.scss
+│   │   ├── cart-page
+│   │   │   └── cart-page.scss
+│   │   ├── common
+│   │   │   └── common.scss
+│   │   ├── filter-form
+│   │   │   └── filter-form.scss
 │   │   ├── header
 │   │   │   └── header.scss
 │   │   ├── list-item
 │   │   │   └── list-item.scss
-│   │   └── modal
-│   │       └── modal.scss
+│   │   ├── modal
+│   │   │   └── modal.scss
+│   │   └── signin-page
+│   │       └── signin-page.scss
 │   └── main.scss
 └── index.js
 ```
-
-Check the demo via link: https://romanbezpalyi.github.io/js-band-hw-task-7/
