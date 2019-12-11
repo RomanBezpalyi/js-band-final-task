@@ -51,8 +51,8 @@ export default class CartForm extends Component {
           <h3 className="cart-aside__title">Order the book</h3>
           <form onSubmit={this.handleSubmit} className="cart-form">
             <div className="cart-form__wrapper">
-              <p className="cart-form__subtitle">Price, $</p>
-              <span>{book.price.toFixed(2)}</span>
+              <p className="cart-form__subtitle">Price</p>
+              <span>${book.price.toFixed(2)}</span>
             </div>
             <label htmlFor="count" className="cart-form__wrapper">
               Count
