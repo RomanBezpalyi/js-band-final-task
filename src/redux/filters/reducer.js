@@ -1,8 +1,9 @@
 import { ActionTypes } from './actions';
+import priceSelectorOptions from '../../constants/priceSelectorOptions';
 
 const initialState = {
   title: '',
-  price: 'Price',
+  price: priceSelectorOptions.DEFAULT,
 };
 
 const filters = (state = initialState, { type, payload }) => {

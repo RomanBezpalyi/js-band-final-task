@@ -21,8 +21,8 @@ export const signin = credentials => dispatch => {
 export const refreshUser = () => (dispatch, getState) => {
   const token = getToken(getState());
   const username = getUsername(getState());
+  if (!token || !username) return;
 
-  if (!token) return;
   dispatch(refreshUserRequest());
   api
     .signin({ username })
