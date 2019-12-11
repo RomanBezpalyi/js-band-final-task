@@ -7,8 +7,3 @@ export const setAuthToken = token => {
 };
 
 export const signin = credentials => axios.post('signin', credentials);
-
-export const signout = token => {
-  setAuthToken(token);
-  return axios.get('logout');
-};
