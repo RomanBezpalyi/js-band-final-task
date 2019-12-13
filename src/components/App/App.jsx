@@ -34,8 +34,8 @@ class App extends Component {
         <Redirect exact from="/" to="/signin" />
         <Route path="/signin" component={SigninPage} />
         <ProtectedComponent exact path="/books" component={BooksPage} />
-        <ProtectedComponent path="/books/:id" component={BookPage} />
-        <ProtectedComponent path="/cart" component={CartPage} />
+        <ProtectedComponent exact path="/books/:id" component={BookPage} />
+        <ProtectedComponent exact path="/cart" component={CartPage} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
     );
