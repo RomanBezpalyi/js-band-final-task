@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 import { ReactComponent as CartIcon } from '../../assets/icons/shopping-cart.svg';
 import LogOutModal from '../LogOutModal';
 
-const Header = ({ isAuthentificated, avatar, username, openLogOutModal }) => (
+const Header = ({
+  isAuthentificated,
+  avatar,
+  username,
+  count,
+  openLogOutModal,
+}) => (
   <header className="page-header header">
     <div className="header-flexcontainer">
       <h1 className="h2 text-left">JS BAND STORE / Roman Bezpalyi</h1>
@@ -19,6 +25,7 @@ const Header = ({ isAuthentificated, avatar, username, openLogOutModal }) => (
                       <CartIcon />
                     </button>
                   </Link>
+                  {count > 0 && <div className="cart-count">{count}</div>}
                 </li>
                 <li>
                   <button
