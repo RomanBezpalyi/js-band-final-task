@@ -8,7 +8,7 @@ through the books available and to check details about them. A user can add
 books into his cart, to see his order list via 'Cart' button and make a purchase
 of chosen books via 'Purchase' button.
 
-Check the demo via link: https://romanbezpalyi.github.io/js-band-final-task/
+Check the demo via link: https://romanbezpalyi.github.io/js-band-final-task/.
 
 ## Launching
 
