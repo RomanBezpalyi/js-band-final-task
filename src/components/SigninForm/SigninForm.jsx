@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LoaderSpinner from '../LoaderSpinner';
 
 class SigninForm extends Component {
   static propTypes = {
     onSignin: PropTypes.func.isRequired,
     error: PropTypes.string,
+    isLoading: PropTypes.bool.isRequired,
     clearErrorMsg: PropTypes.func.isRequired,
     signInError: PropTypes.func.isRequired,
   };
@@ -43,26 +45,33 @@ class SigninForm extends Component {
 
   render() {
     const { username } = this.state;
-    const { error } = this.props;
+    const { error, isLoading } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit} className="signin-form">
-        <label htmlFor="username">
-          Username
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={this.handleChange}
-            placeholder="Type username"
-            className="form-control"
-          />
-        </label>
-        {error && <div className="error-msg">Field is not valid.</div>}
-        <button className="btn base-btn signin-form-btn" type="submit">
-          Sign-In
-        </button>
-      </form>
+      <>
+        {isLoading && (
+          <div className="signin-loader">
+            <LoaderSpinner />
+          </div>
+        )}
+        <form onSubmit={this.handleSubmit} className="signin-form">
+          <label htmlFor="username">
+            Username
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={this.handleChange}
+              placeholder="Type username"
+              className="form-control"
+            />
+          </label>
+          {error && <div className="error-msg">Field is not valid.</div>}
+          <button className="btn base-btn signin-form-btn" type="submit">
+            Sign-In
+          </button>
+        </form>
+      </>
     );
   }
 }
