@@ -31,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Redirect exact from="/" to="/books" />
+        <Redirect exact from="/" to="/signin" />
         <Route exact path="/signin" component={SigninPage} />
         <ProtectedComponent exact path="/books" component={BooksPage} />
         <ProtectedComponent exact path="/books/:id" component={BookPage} />
