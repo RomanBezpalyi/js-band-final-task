@@ -12,7 +12,7 @@ Check the demo via link: https://romanbezpalyi.github.io/js-band-final-task/
 
 ## Launching
 
-To launch project, follow next steps:
+To launch the project, follow next steps:
 
 1. Clone the repository into chosen directory:
 
