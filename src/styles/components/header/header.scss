@@ -11,6 +11,15 @@
   margin: 0 auto;
 }
 
+.app-logo a {
+  color: #fff;
+}
+
+.app-logo a:hover,
+.app-logo a:focus {
+  text-decoration: none;
+}
+
 .header-nav-wrapper {
   width: 100%;
   display: flex;

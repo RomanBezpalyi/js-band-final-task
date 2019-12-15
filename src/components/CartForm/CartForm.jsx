@@ -27,6 +27,7 @@ export default class CartForm extends Component {
   }
 
   handleChange = ({ target: { value } }) => {
+    if (Number(value) < 0) return;
     const { price } = this.props.book;
     this.setState({ count: Number(value), totalPrice: price * Number(value) });
   };
@@ -73,7 +74,7 @@ export default class CartForm extends Component {
             <button
               type="submit"
               className="btn base-btn cart-form-btn"
-              disabled={!count || count > book.count}
+              disabled={count <= 0 || count > book.count}
             >
               Add to cart
             </button>

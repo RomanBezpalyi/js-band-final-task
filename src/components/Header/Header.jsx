@@ -13,7 +13,9 @@ const Header = ({
 }) => (
   <header className="page-header header">
     <div className="header-flexcontainer">
-      <h1 className="h2 text-left">JS BAND STORE / Roman Bezpalyi</h1>
+      <h1 className="h2 text-left app-logo">
+        <Link to="/books">JS BAND STORE / Roman Bezpalyi</Link>
+      </h1>
       {isAuthentificated && (
         <>
           <div className="header-nav-wrapper">
@@ -59,6 +61,7 @@ Header.propTypes = {
   avatar: PropTypes.string,
   username: PropTypes.string,
   openLogOutModal: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired,
 };
 
 Header.defaultProps = {
