@@ -28,7 +28,7 @@ export default class BookDashboard extends Component {
     const { isLoading } = this.props;
     return (
       <section className="book-page-section">
-        {isLoading && <LoaderSpinner />}
+        {isLoading && <LoaderSpinner className="loader-book" />}
         <BookDescription />
         <CartForm />
       </section>
