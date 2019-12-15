@@ -2,18 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { isAuthentificated } from '../../../redux/session/selectors';
+import { getToken } from '../../../redux/session/selectors';
 
-const ProtectedComponent = ({
-  component: Component,
-  authentificated,
-  ...rest
-}) => {
+const ProtectedComponent = ({ component: Component, token, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props =>
-        authentificated ? <Component {...props} /> : <Redirect to="/signin" />
+        token ? <Component {...props} /> : <Redirect to="/signin" />
       }
     />
   );
@@ -21,11 +17,15 @@ const ProtectedComponent = ({
 
 ProtectedComponent.propTypes = {
   component: PropTypes.func.isRequired,
-  authentificated: PropTypes.bool.isRequired,
+  token: PropTypes.string,
+};
+
+ProtectedComponent.defaultProps = {
+  token: null,
 };
 
 const mSTP = state => ({
-  authentificated: isAuthentificated(state),
+  token: getToken(state),
 });
 
-export default connect(mSTP, null)(ProtectedComponent);
+export default connect(mSTP)(ProtectedComponent);
