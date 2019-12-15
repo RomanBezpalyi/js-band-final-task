@@ -12,7 +12,7 @@ const Header = ({
   openLogOutModal,
 }) => (
   <header className="page-header header">
-    <div className="header-flexcontainer">
+    <div className="header__flexcontainer">
       <h1 className="h2 text-left app-logo">
         <Link to="/books">JS BAND STORE / Roman Bezpalyi</Link>
       </h1>
