@@ -133,7 +133,7 @@ customize it when you are ready for it.
 │   ├── HOC
 │   │   ├── AuthRedirect
 │   │   │   │── AuthRedirect.jsx
-│   │   │   └── index.jsx
+│   │   │   └── index.js
 │   │   └── ProtectedComponent
 │   │       │── index.js
 │   │       └── ProtectedComponent.jsx
